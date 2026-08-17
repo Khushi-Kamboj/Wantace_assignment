@@ -1,6 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import configRoutes from './routes/configRoutes.js';
+import estimateRoutes from './routes/estimateRoutes.js';
 
 const app = express();
 
@@ -14,5 +16,6 @@ app.get('/api/health', (req, res) => {
     message: 'Northline Roofing API is running'
   });
 });
-
+app.use('/api/config', configRoutes);
+app.use('/api/estimate', estimateRoutes);
 export default app;
