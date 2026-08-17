@@ -53,3 +53,30 @@ export const updateConfig = async (req, res) => {
     });
   }
 };
+
+export const getAdminConfig = async (req, res) => {
+  try {
+    const config = await Config.findOne()
+      .sort({ config_version: -1 })
+      .lean();
+
+    if (!config) {
+      return res.status(404).json({
+        success: false,
+        message: 'Configuration not found'
+      });
+    }
+
+    return res.status(200).json({
+      success: true,
+      data: config
+    });
+  } catch (error) {
+    console.error('Get admin config error:', error);
+
+    return res.status(500).json({
+      success: false,
+      message: 'Failed to fetch configuration'
+    });
+  }
+};
