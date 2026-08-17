@@ -55,7 +55,7 @@ const ConfigSchema = new mongoose.Schema(
       },
       range_spread_pct: {
         type: Number,
-        default: 0.12
+        default: 12
       }
     }
   },
