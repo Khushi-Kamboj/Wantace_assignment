@@ -5,6 +5,7 @@ import configRoutes from './routes/configRoutes.js';
 import estimateRoutes from './routes/estimateRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import adminConfigRoutes from './routes/adminConfigRoutes.js';
+import adminLeadsRoutes from './routes/adminLeadsRoutes.js';
 
 const app = express();
 
@@ -22,5 +23,6 @@ app.use('/api/config', configRoutes);
 app.use('/api/estimate', estimateRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/admin/config', adminConfigRoutes);
+app.use('/api/admin/leads', adminLeadsRoutes);
 
 export default app;
