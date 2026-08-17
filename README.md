@@ -1,21 +1,35 @@
 # Northline Roofing & Exteriors — Roofing Estimator
 
-A full-stack, configuration-driven roofing estimate application built for **Northline Roofing & Exteriors**.
+A full-stack, configuration-driven roofing estimation application built for **Northline Roofing & Exteriors**.
 
 The application provides two user-facing surfaces backed by a single REST API and MongoDB database:
 
-- **Public Estimator** — homeowners answer a multi-step questionnaire and receive a server-calculated roofing cost range.
-- **Owner Panel** — authenticated business users can manage estimator configuration and review captured leads.
+- **Public Estimator** — Homeowners answer a multi-step questionnaire and receive a server-calculated roofing cost range.
+- **Owner Panel** — Authenticated business users can manage estimator configuration and review captured leads.
 
-## Core Principle
+---
 
-The application is **configuration-driven**.
+## 🚀 Live Demo
 
-Questions, labels, options, limits, rates, multipliers, and pricing modifiers are stored in the database and delivered through the API at runtime.
+### Public Estimator
+https://wantace-assignment-five.vercel.app
 
-The frontend does **not** hardcode business pricing or calculation logic.
+### Owner Panel
+https://wantace-assignment-five.vercel.app/owner/login
 
-All pricing calculations are performed **server-side** so browser-side manipulation cannot change the final estimate.
+### Backend Health Check
+https://wantace-assignment-0q3s.onrender.com/api/health
+
+---
+
+## 🔐 Demo Credentials
+
+Use the following credentials to access the Owner Panel:
+
+```text
+Username: admin
+Password: roofing2026
+```
 
 ---
 
@@ -76,7 +90,7 @@ All pricing calculations are performed **server-side** so browser-side manipulat
 - Vite
 - Axios
 - React Router
-- Tailwind CSS / CSS
+- CSS
 
 ## Backend
 
@@ -174,8 +188,8 @@ Watance_Assignment/
 │   │   │
 │   │   ├── pages/
 │   │   │   ├── Estimator.jsx
-│   │   │   ├── Login.jsx
-│   │   │   └── AdminPanel.jsx
+│   │   │   ├── OwnerLogin.jsx
+│   │   │   └── OwnerPanel.jsx
 │   │   │
 │   │   ├── services/
 │   │   │   └── api.js
@@ -654,7 +668,25 @@ npm install
 
 ---
 
-## 7. Start the frontend
+## 7. Configure frontend environment variables
+
+Create:
+
+```text
+client/.env
+```
+
+For local development:
+
+```env
+VITE_API_URL=http://localhost:5000
+```
+
+For deployment, set `VITE_API_URL` in your hosting provider to the backend origin, without a trailing `/api` path.
+
+---
+
+## 8. Start the frontend
 
 ```bash
 npm run dev
