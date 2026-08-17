@@ -1,6 +1,10 @@
 import axios from 'axios';
 
-const api = axios.create({ baseURL: 'http://localhost:5000/api' });
+const API_URL = import.meta.env.VITE_API_URL;
+
+const api = axios.create({
+  baseURL: `${API_URL}/api`
+});
 
 export const getErrorMessage = (error, fallback = 'Something went wrong. Please try again.') => error.response?.data?.message || fallback;
 export const getPublicConfig = async () => (await api.get('/config')).data.data;
